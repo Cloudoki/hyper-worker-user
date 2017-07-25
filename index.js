@@ -1,7 +1,5 @@
 'use strict'
 
-const config = require('config');
-const log = require('log');
 const mq = require('hyper-queue');
 
 const config = require('config');

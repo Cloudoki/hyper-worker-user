@@ -16,7 +16,7 @@ exports.up = function (knex, Promise) {
             table.timestamps();
         }).createTable('account', function (table) {
             table.increments('id').primary();
-            table.string('name').notNullable().unique();
+            table.string('slug').notNullable().unique();
             table.integer('role_id').unsigned().references('role.id');
             table.timestamps();
         }).createTable('permission', function (table) {
@@ -28,8 +28,9 @@ exports.up = function (knex, Promise) {
             table.integer('permission_id').unsigned().references('permission.id');
             table.timestamps();
         }).createTable('account_user', function (table) {
-            table.integer('account_id').unsigned().references('account.id');
-            table.integer('user_id').unsigned().references('user.id');
+            table.integer('account_id').notNullable().unsigned().references('account.id');
+            table.integer('user_id').notNullable().unsigned().references('user.id');
+            table.unique(['user_id', 'account_id']);
             table.timestamps();
         })
     ]);
