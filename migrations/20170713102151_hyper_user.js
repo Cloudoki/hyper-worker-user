@@ -23,7 +23,7 @@ exports.up = function (knex, Promise) {
             table.increments('id').primary();
             table.string('slug').notNullable().unique();
             table.timestamps();
-        }).createTable('role_permisson', function (table) {
+        }).createTable('permission_role', function (table) {
             table.integer('role_id').unsigned().references('role.id');
             table.integer('permission_id').unsigned().references('permission.id');
             table.timestamps();
