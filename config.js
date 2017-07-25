@@ -1,6 +1,6 @@
 exports = module.exports = {
     logger: {
-        name: process.env.CLDK_WORKER_USER_LOGGER_NAME || 'CLDK',
+        name: process.env.CLDK_WORKER_USER_LOGGER_NAME || 'HYPER-WORKER-USER',
         level: process.env.CLDK_WORKER_USER_LOGGER_LEVEL || 'debug'
     },
     database: {
