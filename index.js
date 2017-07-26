@@ -13,6 +13,8 @@ const role = require('lib/consumers/role');
 
 const permission = require('lib/consumers/permission');
 
+const verification = require('lib/consumers/verification');
+
 mq.logger(log);
 
 mq.broker(config.queue.uri, config.queue.options, config.queue.reconnect);
@@ -24,5 +26,7 @@ mq.registerConsumers(account.consumers);
 mq.registerConsumers(role.consumers);
 
 mq.registerConsumers(permission.consumers);
+
+mq.registerConsumers(verification.consumers);
 
 mq.connect();
