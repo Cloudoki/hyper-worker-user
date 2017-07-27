@@ -1,32 +1,31 @@
 'use strict'
 
-const mq = require('hyper-queue');
+const seneca = require('seneca')()
+    .use('seneca-amqp-transport');
 
 const config = require('config');
-const log = require('log');
+const log = require('util/logger');
 
-const user = require('lib/consumers/user');
+const roles = [
+    require('lib/listeners/user'),
+    require('lib/listeners/account'),
+    require('lib/listeners/role'),
+    require('lib/listeners/permission'),
+    require('lib/listeners/verification')
+];
 
-const account = require('lib/consumers/account');
+let pins = [];
 
-const role = require('lib/consumers/role');
+for (let role of roles) {
+    for (let listener of role.listeners) {
+        seneca.add(listener.pin, listener.handler);
+        pins.push[listener.pin];
+    }
+}
 
-const permission = require('lib/consumers/permission');
-
-const verification = require('lib/consumers/verification');
-
-mq.logger(log);
-
-mq.broker(config.queue.uri, config.queue.options, config.queue.reconnect);
-
-mq.registerConsumers(user.consumers);
-
-mq.registerConsumers(account.consumers);
-
-mq.registerConsumers(role.consumers);
-
-mq.registerConsumers(permission.consumers);
-
-mq.registerConsumers(verification.consumers);
-
-mq.connect();
+seneca.listen({
+    type: 'amqp',
+    pin: pins,
+    name: 'hyper.multi-task.queue',
+    url: config.queue.uri
+  });

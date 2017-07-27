@@ -14,7 +14,7 @@ exports = module.exports = {
         }
     },
     queue: {
-        uri: process.env.CLDK_WORKER_USER_QUEUE_URI || 'amqps://mq.dev.cloudoki.com',
+        uri: process.env.CLDK_WORKER_USER_QUEUE_URI || 'amqp://mq.dev.cloudoki.com:5672',
         reconnect: process.env.CLDK_WORKER_USER_QUEUE_RECONNECT || 5000,
         options: {
             cert: process.env.CLDK_WORKER_USER_QUEUE_CERT || '/Users/tomasfoglio/Cloudoki/donderstarter-api/ssl/client/cert.pem',

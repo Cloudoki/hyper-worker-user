@@ -16,6 +16,8 @@
     "bunyan": "^1.8.10",
     "hyper-queue": "git+https://github.com/Cloudoki/hyper-queue.git",
     "knex": "<0.13.0",
-    "mysql": "^2.13.0"
+    "mysql": "^2.13.0",
+    "seneca": "^3.4.1",
+    "seneca-amqp-transport": "^2.2.0"
   }
 }
