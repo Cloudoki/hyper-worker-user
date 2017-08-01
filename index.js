@@ -14,12 +14,16 @@ const roles = [
     require('lib/listeners/verification')
 ];
 
-let pins = [];
+let pins = [
+    "role:user",
+    "role:account",
+    "role:role",
+    "role:permission"
+];
 
 for (let role of roles) {
     for (let listener of role.listeners) {
         seneca.add(listener.pin, listener.handler);
-        pins.push[listener.pin];
     }
 }
 

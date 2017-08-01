@@ -14,7 +14,7 @@
     "bookshelf": "^0.10.3",
     "bookshelf-modelbase": "^2.10.4",
     "bunyan": "^1.8.10",
-    "hyper-queue": "git+https://github.com/Cloudoki/hyper-queue.git",
+    "hyper-error": "git+https://github.com/Cloudoki/hyper-error.git",
     "knex": "<0.13.0",
     "mysql": "^2.13.0",
     "seneca": "^3.4.1",
