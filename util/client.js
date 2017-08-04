@@ -14,7 +14,9 @@ const roles = [
     require('lib/listeners/role'),
     require('lib/listeners/permission'),
     require('lib/listeners/verification'),
-    require('lib/listeners/ping')
+    require('lib/listeners/ping'),
+    require('lib/listeners/client'),
+    require('lib/listeners/oauth2'),
 ];
 
 for (let role of roles) {
@@ -23,6 +25,6 @@ for (let role of roles) {
     }
 }
 
-seneca.listen(config.get('seneca').client).client(config.get('seneca').client);
+seneca.listen(config.get('seneca').client);
 
 exports.seneca = seneca;
