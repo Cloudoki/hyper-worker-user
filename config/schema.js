@@ -70,7 +70,8 @@ const schema = {
                     'role:role',
                     'role:user',
                     'role:superadmin',
-                    'role:authorization'
+                    'role:authorization',
+                    'role:userWorker'
                 ]
             }
         },
