@@ -11,7 +11,7 @@ var env = config.get('env');
 
 // If production use session vars instead
 if (env !== 'production') {
-    config.loadFile('./config/envs/' + env + '.json');
+	config.loadFile('./config/envs/' + env + '.json');
 }
 
 // Perform validation
