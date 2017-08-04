@@ -71,7 +71,9 @@ const schema = {
                     'role:user',
                     'role:superadmin',
                     'role:authorization',
-                    'role:userWorker'
+                    'role:userWorker',
+                    'role:oauthClient',
+                    'role:oauthFlow'
                 ]
             }
         },
