@@ -3,7 +3,7 @@
 const convict = require('convict');
 
 // Define a schema
-const schema = require('config/schema');
+const schema = require('./schema');
 const config = convict(schema);
 
 // Load environment dependent configuration

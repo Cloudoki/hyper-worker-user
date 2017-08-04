@@ -58,7 +58,7 @@ const schema = {
                 doc: 'Broker queue name',
                 format: String,
                 env: 'HYPER_WORKER_USER_BROKER_QUEUE_NAME',
-                default: 'hyper.multi-task.queue'
+                default: 'hyper.user.queue'
             },
             pins: {
                 doc: 'Seneca services pins',
@@ -69,7 +69,8 @@ const schema = {
                     'role:permission',
                     'role:role',
                     'role:user',
-                    'role:superadmin'
+                    'role:superadmin',
+                    'role:authorization'
                 ]
             }
         },
@@ -84,7 +85,7 @@ const schema = {
         name: {
             doc: 'API logger name',
             format: String,
-            default: 'Hyper-Worker_User'
+            default: 'Hyper-Worker-User'
         },
         level: {
             doc: 'Logger level',
