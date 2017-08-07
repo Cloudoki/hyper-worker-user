@@ -7,6 +7,52 @@ const schema = {
 		default: 'development',
 		env: 'HYPER_WORKER_USER_NODE_ENV'
 	},
+	oauth2: {
+		token_expiresIn: {
+			doc: 'The time in minutes to expire the token',
+			format: Number,
+			env: 'OAUTH2_TOKEN_EXPIRATION',
+			default: 60 * 60 // 60 minutes
+		},
+		code_expiresIn: {
+			doc: 'The time in minutes to expire the code',
+			format: Number,
+			env: 'OAUTH2_CODE_EXPIRATION',
+			default: 5 * 60 // 5 minutes
+		},
+		refreshToken_expiresIn: {
+			doc: 'The time in minutes to expire the refresh token',
+			format: Number,
+			env: 'OAUTH2__REFRESH_TOKEN_EXPIRATION',
+			default: 52560000 // 100 years
+		},
+		db_timeToCheckExpiredTokens: {
+			doc: 'The time in minutes to check database for expired tokens',
+			format: Number,
+			env: 'OAUTH2_DB_CHECK_TOKENS',
+			default: 60 * 60 // 60 minutes
+		},
+		debug: {
+			doc: 'debug',
+			format: Boolean,
+			env: 'OAUTH2_DEBUG',
+			default: true
+		},
+		session: {
+			maxAge: {
+				doc: 'The maximum age in milliseconds of the session.',
+				format: Number,
+				env: 'OAUTH2_SESSION_MAX_AGE',
+				default: 3600000 * 24 * 7 * 52, // 1 year
+			},
+			secret: {
+				doc: 'The session secret',
+				format: String,
+				env: 'OAUTH2_SESSION_SECRET',
+				default: '53kre7 TH@7 mUZt bE ch4Ng3D'
+			}
+		}
+	},
 	database: {
 		options: {
 			doc: 'Database default options',
