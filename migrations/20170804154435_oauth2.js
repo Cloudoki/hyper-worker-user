@@ -8,6 +8,7 @@ exports.up = function (knex, Promise) {
 			table.string('name');
 			table.string('description');
 			table.string('grant_types');
+			table.boolean('trusted');
 			table.string('scope');
 			table.integer('user_id').unsigned().references('user.id');
 			table.timestamps();
