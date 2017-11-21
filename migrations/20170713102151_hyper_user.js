@@ -32,8 +32,13 @@ exports.up = function (knex, Promise) {
 			table.integer('user_id').notNullable().unsigned().references('user.id');
 			table.unique(['user_id', 'account_id']);
 			table.timestamps();
+		}).createTable('password_recovery', function(table) {
+			table.string('token').primary();
+			table.string('email').notNullable().references('user.email');
+			table.timestamps();
 		}).then(function () {
 			return knex("user").insert([{
+				id: 1,
 				email: "admin@cloudoki.com",
 				password: "a",
 				first_name: "admin",

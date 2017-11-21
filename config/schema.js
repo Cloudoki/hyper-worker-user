@@ -38,6 +38,12 @@ const schema = {
 			env: 'OAUTH2_DEBUG',
 			default: true
 		},
+		passphrase: {
+			doc: 'The passphrase for the certificates',
+			format: String,
+			env: 'OAUTH2_CERTS_PASSPHRASE',
+			default: '53kr37'
+		},
 		session: {
 			maxAge: {
 				doc: 'The maximum age in milliseconds of the session.',
