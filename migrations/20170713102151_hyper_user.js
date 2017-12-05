@@ -44,7 +44,26 @@ exports.up = function (knex, Promise) {
 				first_name: "admin",
 				last_name: "cloudoki",
 				super_admin: true
-			}]);
+			}]).then(function () {
+				return knex("role").insert({
+					id:  1,
+					slug: "ALL",
+					description: "All the permissions"
+				}).returning('id')
+				.then(function(role_id) {
+					return knex("account").insert({
+						id:  1,
+						slug: "hyper_account",
+						role_id: role_id
+					}).returning('id')
+					.then(function (account_id) {
+						return knex("account_user").insert({
+							user_id:  1,
+							account_id: account_id
+						})
+					})
+				})
+			});
 		})
 	]);
 };
